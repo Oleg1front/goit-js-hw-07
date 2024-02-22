@@ -10,6 +10,7 @@ const input = document.querySelector("input");
 const boxContainer = document.querySelector("#boxes");
 
 const createBoxes = (amount) => {
+  const divArray = [];
   for (let i = 0; i < amount; i++) {
     const createDiv = document.createElement("div");
     const divSize = 30 + i * 10;
@@ -17,8 +18,9 @@ const createBoxes = (amount) => {
     createDiv.style.height = `${divSize}px`;
     createDiv.classList.add("box");
     createDiv.style.backgroundColor = getRandomHexColor();
-    boxContainer.appendChild(createDiv);
+    divArray.push(createDiv);
   }
+  boxContainer.append(...divArray)
 };
 
 const destroyBoxes = () => {
