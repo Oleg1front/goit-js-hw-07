@@ -7,10 +7,9 @@ function getRandomHexColor() {
 const createBtn = document.querySelector("button[data-create]");
 const destroyBtn = document.querySelector("button[data-destroy]");
 const input = document.querySelector("input");
+const boxContainer = document.querySelector("#boxes");
 
 const createBoxes = (amount) => {
-  const boxContainer = document.querySelector("#boxes");
-
   for (let i = 0; i < amount; i++) {
     const createDiv = document.createElement("div");
     const divSize = 30 + i * 10;
