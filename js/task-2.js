@@ -11,28 +11,26 @@ const images = [
     url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     alt: "Group of Horses Running",
   },
-  {
-    url: "https://images.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    alt: "Elephant Beside on Baby Elephant",
-  },
-  {
-    url: "https://images.pexels.com/photos/37833/rainbow-lorikeet-parrots-australia-rainbow-37833.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    alt: "Blue Geeen and Orange Parrot",
-  },
-  {
-    url: "https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    alt: "Zebras on Zebra",
-  },
 ];
 
 const galleryList = document.querySelector(".gallery");
+galleryList.classList.add("img-list");
 
+const imgList = [];
 images.forEach((img) => {
-  const createLi = document.createElement("li");
   const createImg = document.createElement("img");
   createImg.src = img.url;
   createImg.alt = img.alt;
-  createImg.classList.add('image')
-  galleryList.appendChild(createLi).appendChild(createImg);
-  galleryList.classList.add("img-list");
+  createImg.classList.add("image");
+  const liItem = document.createElement("li");
+  liItem.appendChild(createImg);
+  imgList.push(liItem);
 });
+console.log(imgList);
+
+const renderImg = () => {
+  imgList.forEach((liItem) => {
+    galleryList.appendChild(liItem);
+  });
+};
+renderImg();
